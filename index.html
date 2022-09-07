@@ -28,16 +28,16 @@
       float: left;
       height: 100%;
       left: 0px;
-      line-height: 22.5px;
+      /* line-height: 22.5px; */
       position: fixed;      
       text-align: center;
       text-size-adjust: 100%;
-      width: 475.734px;
+      /* width: 475.734px; */
       width: 30%;
     }
 
     .main_section{
-      float: right !important;
+      float: right;
       display: block;
       padding: 12px 12px;
       text-size-adjust: 100%;
@@ -65,6 +65,7 @@
       background-color: orange;
       text-decoration: none;
       border-radius: 5px;
+      margin-bottom: 5px;
     }
 
     .button:hover{
@@ -103,13 +104,15 @@
 
     @media screen and (max-width: 600px){
       .main_section{
-        width: 66.6666%;
-        display: block;
-        margin-bottom: 20px;
+        width: 100%;
+        /* display: block; */
+        font-size: 7px;
       }
       .fixed_section{
-        width: 33.3333%;
-        display: block;
+        width: 100%;
+        /* display: block; */
+        position: relative;
+        font-size: 7px;
       }
     }
   </style>
