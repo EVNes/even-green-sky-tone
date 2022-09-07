@@ -15,8 +15,13 @@
       box-sizing: inherit;
     }
 
+    html{
+      scroll-behavior: smooth;
+    }
+
     body{
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+      /* font-size: 1vw; */
       font-size: 15px;
       margin: 0;
     }
@@ -68,7 +73,12 @@
       margin-bottom: 5px;
     }
 
-    .button:hover{
+    .button:hover, .expLink:hover {
+      background-color: orangered;
+      color:white
+    }
+
+    .navigation a:hover{
       background-color: orangered;
       color:white
     }
@@ -96,6 +106,35 @@
       border-bottom: 3px solid #ccc;
       border-width: 3px;
       border-color: #ffc107;
+    }
+
+    .expLink {
+      display: grid;
+      margin-bottom: 15px;
+      border: none;
+      background-color: #ddd;
+      padding: 10px 10px;
+    }
+    
+    .expClicked {
+      display: grid;
+      margin-bottom: 15px;
+      border: none;
+      border-left: solid 5px rgb(75, 75, 75);
+      background-color:#ffc107;
+      padding: 10px 10px;
+    }
+
+    .navigation {
+      text-align: right;
+    }
+    .navigation a {
+      text-decoration: none;
+      padding: 5px;
+    }
+
+    .icons{
+      font-size:30px
     }
 
     h1, h2, h3 {
@@ -128,6 +167,7 @@
       <p>Mobile phone: +7-910-919-37-47</p>
       <p>Family status: married, two children</p>
     </div>
+    
     <div>
       <a class="button" href="assets\resume.pdf" target="_blank">
         <span>Download CV</span>
@@ -135,6 +175,13 @@
     </div>
   </div>
   <div class="main_section">
+    <div class="navigation">
+      <a href="#about">ABOUT</a>
+      <a href="#resume">RESUME</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    
     <div class="card">
       <div><h1 style="text-align: center;">About</h1></div>
       <div>
@@ -143,43 +190,51 @@
     </div>
 
     <div class="card">
-      <div><h1 style="text-align: center;">RESUME</h1></div>
+      <div id="resume"><h1 style="text-align: center;">RESUME</h1></div>
       <div>
         <h2>PROFESSIONAL EXPERIENCE</h2>
-        <h3>Head of Information Systems Department at LLC PCMA RUS (Peugeot Citroen Mitsubishi Automotive Kaluga)</h3>
-        <p>11/2013 – Present</p>
-        <ul>
-          <li>Information systems projects management.</li>
-          <li>Information systems current life support, incidents and change management. Domains: production (vehicles, spare parts, engines), quality, logistics, maintenance, and SAP finance. Experience of work with the domains of commerce and Russian HR ERP (1C) information systems.</li>
-          <li>Management of the application park, local applications costs.</li>
-          <li>Implementation of the improvements in logistics to provide better efficiency.</li>
-          <li>Supplier supervision.</li>
-          <li>Team Lead & Team building (group of 6-8 IT specialists).</li>
-        </ul>
-        <h3>Group Leader of the Information Systems Department at LLC PCMA RUS (Peugeot Citroen Mitsubishi Automotive Kaluga)</h3>
-        <p>11/2011 - 11/2013</p>
-        <ul>
-          <li>Team Lead of the group of IT specialists.</li>
-          <li>Information systems current life support.</li>
-          <li>Incidents and change management.</li>
-          <li>Product management and reporting.</li>
-          <li>Implementation of new projects.</li>
-          <li>Developping, implementation, and control of the backup procedures on critical activity.</li>
-          <li>Team activity audit.</li>
-        </ul>
-        <h3>Specialist of the Information Systems Department at LLC PCMA RUS (Peugeot Citroen Mitsubishi Automotive Kaluga)</h3>
-        <p>07/2009 - 11/2011</p>
-        <ul>
-          <li>Deployment of the production and maintenance information systems (web-applications, SAP ERP/BW, Business Objects): configuration, production of documentation, translations, trainings, users’ support, change and incident management.</li>
-        </ul>
-        <h3>Engineer system-analyst (Group leader) at JSC "SIGMA" Research and Production (Kaluga)</h3>
-        <p>09/2007 – 07/2009</p>
-        <ul>
-          <li>Troubleshooting, configuration, prototype evaluating and sequential integration of the hardware and software of the data transmission systems.</li>
-          <li>Maintenance of the system of data transmission.</li>
-          <li>Program Dynamic Analysis, source code modification.</li>
-          <li>Production of technical specifications, planning of the integration of new hardware computing and intelligent computer systems.</li>
-        </ul>
+        <button class="expLink" onclick="openExp(event, 'Present')">11/2013 - Present</button>
+        <div id="Present" class="exp" style="display: none">
+          <h3>Head of Information Systems Department at LLC PCMA RUS (Peugeot Citroen Mitsubishi Automotive Kaluga)</h3>
+          <ul>
+            <li>Information systems projects management.</li>
+            <li>Information systems current life support, incidents and change management. Domains: production (vehicles, spare parts, engines), quality, logistics, maintenance, and SAP finance. Experience of work with the domains of commerce and Russian HR ERP (1C) information systems.</li>
+            <li>Management of the application park, local applications costs.</li>
+            <li>Implementation of the improvements in logistics to provide better efficiency.</li>
+            <li>Supplier supervision.</li>
+            <li>Team Lead & Team building (group of 6-8 IT specialists).</li>
+          </ul>
+        </div>
+        <button class="expLink" onclick="openExp(event, 'third')">11/2011 - 11/2013</button>
+        <div id="third" class="exp" style="display: none;">
+          <h3>Group Leader of the Information Systems Department at LLC PCMA RUS (Peugeot Citroen Mitsubishi Automotive Kaluga)</h3>
+          <ul>
+            <li>Team Lead of the group of IT specialists.</li>
+            <li>Information systems current life support.</li>
+            <li>Incidents and change management.</li>
+            <li>Product management and reporting.</li>
+            <li>Implementation of new projects.</li>
+            <li>Developping, implementation, and control of the backup procedures on critical activity.</li>
+            <li>Team activity audit.</li>
+          </ul>
+        </div>
+        <button class="expLink" onclick="openExp(event, 'second')">07/2009 - 11/2011</button>
+        <div id="second" class="exp" style="display: none;">
+          <h3>Specialist of the Information Systems Department at LLC PCMA RUS (Peugeot Citroen Mitsubishi Automotive Kaluga)</h3>
+          <ul>
+            <li>Deployment of the production and maintenance information systems (web-applications, SAP ERP/BW, Business Objects): configuration, production of documentation, translations, trainings, users’ support, change and incident management.</li>
+          </ul>
+        </div>
+        <button class="expLink" onclick="openExp(event,'first')">09/2007 – 07/2009</button>
+        <div id="first" class="exp" style="display: none;">
+          <h3>Engineer system-analyst (Group leader) at JSC "SIGMA" Research and Production (Kaluga)</h3>
+          <ul>
+            <li>Troubleshooting, configuration, prototype evaluating and sequential integration of the hardware and software of the data transmission systems.</li>
+            <li>Maintenance of the system of data transmission.</li>
+            <li>Program Dynamic Analysis, source code modification.</li>
+            <li>Production of technical specifications, planning of the integration of new hardware computing and intelligent computer systems.</li>
+          </ul>
+        </div>
       </div>
       <div>
         <h2>EDUCATION</h2>
@@ -194,7 +249,7 @@
       </div>
     </div>
     
-    <div class="card">
+    <div id="skills" class="card">
       <div><h1 style="text-align: center;">Skills and qualities</h1></div>
       <div>
         <h3>SKILLS</h3>
@@ -290,7 +345,7 @@
       
     </div>
 
-    <div class="card">
+    <div id="contact" class="card">
       <div><h1 style="text-align: center;">MY CONTACT DETAILS</h1></div>
       <div>
         <p>Name: Ievgueny Nesterenko</p>
@@ -299,6 +354,12 @@
         <p>E-mail: evgeny.nesterenko@stellantis.com</p>        
       </div>
     </div>
+
+    <footer>
+      <div>
+        <a class="icons" href="https://www.linkedin.com/in/evgeny-nesterenko/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+      </div>
+    </footer>
   </div>
 
 
@@ -308,6 +369,20 @@
     let age = currentYear - birthYear
     console.log(currentYear)
     document.getElementById("age").innerHTML = age
+  
+    function openExp(evt, expName) {
+      var i, x, expLinks;
+      x = document.getElementsByClassName("exp");
+      for (i=0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      expLinks = document.getElementsByClassName("expLink");
+      for (i = 0; i < x.length; i++) {
+        expLinks[i].className = expLinks[i].className.replace("expClicked","");
+      }
+      document.getElementById(expName).style.display = "block";
+      evt.currentTarget.className += " expClicked";
+    }
   </script>
 
 </body>
