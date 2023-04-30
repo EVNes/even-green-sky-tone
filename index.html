@@ -97,7 +97,10 @@
     }
 
     .p_skills {
-      margin: 0px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 2px;
     }
 
     h1 {
@@ -154,7 +157,7 @@
     }
     @media only screen and (orientation: landscape) {
       .fixed_section div > h1, p, a{
-        font-size: 11px;
+    font-size: 15px;
       }
     }
   }
@@ -368,11 +371,25 @@
 
 
   <script>
-    let currentYear = new Date().getFullYear()
-    const birthYear = 1985
-    let age = currentYear - birthYear
-    console.log(currentYear)
-    document.getElementById("age").innerHTML = age
+    function getAge(birthDate) {
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+	}
+//    let currentYear = new Date().getFullYear()
+//    const birthYear = 1985
+//	var today = new Date();
+//	var age = today.getFullYear() - birthDate.getFullYear();
+//	var m = today.getMonth() - birthDate.getMonth();
+//    let age = currentYear - birthYear
+//    console.log(currentYear)
+//    // document.getElementById("age").innerHTML = age
+      var birthDate = new Date("1985-07-01");
+	  document.getElementById("age").innerHTML = getAge(birthDate);
   
     function openExp(evt, expName) {
       var i, x, expLinks;
